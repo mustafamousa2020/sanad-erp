@@ -681,19 +681,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Partners / System specs */}
-      <section className="partners-section">
-        <div className="container">
-          <p className="partners-title">{t[lang].partnersTitle}</p>
-          <div className="partners-logos">
-            <div className="partner-logo"><i className="fa-brands fa-windows"></i> <span>Windows 10 / 11</span></div>
-            <div className="partner-logo"><i className="fa-solid fa-database"></i> <span>SQLite Database</span></div>
-            <div className="partner-logo"><i className="fa-brands fa-react"></i> <span>React & Electron</span></div>
-            <div className="partner-logo"><i className="fa-solid fa-server"></i> <span>Express Local Server</span></div>
-            <div className="partner-logo"><i className="fa-solid fa-key"></i> <span>Device Lock Activation</span></div>
-          </div>
-        </div>
-      </section>
+
 
       {/* Core Modules Section */}
       <section className="features-section" id="features">
