@@ -39,3 +39,8 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Sanad ERP Local Backups & Desktop app files
+Sanad ERP.zip
+/Sanad_System
+/temp_backup
