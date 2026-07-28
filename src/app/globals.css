@@ -1729,3 +1729,116 @@ body.lang-en .edition-tab i,
 body.lang-en .pricing-edition-tab i {
     margin-right: 8px;
 }
+
+
+/* Custom Mobile Responsiveness Fixes - Mint Theme */
+@media (max-width: 768px) {
+    .pricing-grid {
+        grid-template-columns: 1fr !important;
+        width: 100%;
+        max-width: 480px;
+        margin: 0 auto;
+        padding: 0 15px;
+    }
+    
+    .pricing-card {
+        padding: 30px 20px !important;
+    }
+}
+
+@media (max-width: 600px) {
+    /* Responsive Hero Tabs */
+    .edition-tabs-container {
+        padding: 0 15px;
+        width: 100%;
+    }
+    
+    .edition-tabs {
+        flex-direction: column;
+        width: 100%;
+        border-radius: 16px !important;
+        padding: 4px !important;
+        max-width: 320px;
+        margin: 0 auto;
+        gap: 4px;
+    }
+    
+    .edition-tab {
+        width: 100%;
+        text-align: center;
+        border-radius: 12px !important;
+        padding: 8px 12px !important;
+        font-size: 0.85rem !important;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Responsive Pricing Edition Switcher */
+    .pricing-edition-container {
+        padding: 0 15px;
+        width: 100%;
+    }
+    
+    .pricing-edition-tabs {
+        flex-direction: column;
+        width: 100%;
+        border-radius: 16px !important;
+        padding: 4px !important;
+        max-width: 280px;
+        margin: 0 auto;
+        gap: 4px;
+    }
+    
+    .pricing-edition-tab {
+        width: 100%;
+        text-align: center;
+        border-radius: 12px !important;
+        padding: 6px 12px !important;
+        font-size: 0.8rem !important;
+    }
+
+    /* Billing switcher stack */
+    .billing-switcher {
+        flex-direction: column;
+        gap: 12px;
+        align-items: center;
+        width: 100%;
+        padding: 0 15px;
+    }
+    
+    .billing-switcher .switcher-label {
+        font-size: 0.85rem;
+        text-align: center;
+    }
+
+    /* Modules grid scaling */
+    .modules-grid {
+        grid-template-columns: 1fr !important;
+        padding: 0 15px;
+    }
+    
+    .module-card {
+        padding: 25px 20px !important;
+    }
+
+    /* Testimonial text sizing */
+    .testimonial-text {
+        font-size: 1.1rem !important;
+        line-height: 1.6 !important;
+        padding: 0 10px;
+    }
+
+    /* Adjust Section paddings for mobile */
+    section {
+        padding: 60px 0 !important;
+    }
+    
+    .hero-section {
+        padding-top: 100px !important;
+        padding-bottom: 60px !important;
+    }
+    
+    .section-title {
+        font-size: 1.8rem !important;
+    }
+}
