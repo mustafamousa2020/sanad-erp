@@ -1092,14 +1092,18 @@ body.lang-ar input:checked + .slider:before {
 }
 .featured-badge {
     position: absolute;
-    top: 20px;
-    inset-inline-end: 20px;
+    top: -14px;
+    left: 50%;
+    transform: translateX(-50%);
     background-color: var(--color-primary);
     color: white;
     font-size: 0.78rem;
     font-weight: 700;
-    padding: 4px 12px;
+    padding: 4px 14px;
     border-radius: 50px;
+    box-shadow: 0 4px 10px var(--color-primary-glow);
+    z-index: 5;
+    white-space: nowrap;
 }
 .theme-dark .featured-badge {
     background-color: #2dd4bf;
