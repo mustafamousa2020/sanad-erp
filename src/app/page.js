@@ -16,7 +16,7 @@ const t = {
     
     heroBadge: 'برنامج سطح مكتب متكامل (Offline-First)',
     
-    heroTitleRepair: 'أدر محل الكمبيوتر ومركز الصيانة بذكاء مع نظام سند',
+    heroTitleRepair: 'أدر محلك أو مركز الصيانة الخاص بك بذكاء مع نظام سند',
     heroSubtitleRepair: 'تطبيق سطح مكتب سريع وآمن يعمل 100% بدون إنترنت على قاعدة بيانات محلية. يربط فواتير الكاشير (POS) والمبيعات، بنظام تذاكر صيانة الأجهزة والقطع، مع جرد دقيق للمستودع والمصروفات.',
     
     heroTitleSales: 'أدر مبيعات متجرك ونقاط البيع باحترافية مع نظام سند',
@@ -215,7 +215,7 @@ const t = {
     
     heroBadge: 'Offline-First Desktop App (Windows)',
     
-    heroTitleRepair: 'Manage Your PC Shop & Repair Center with Sanad System',
+    heroTitleRepair: 'Manage Your Shop or Repair Center with Sanad System',
     heroSubtitleRepair: 'A secure, fast desktop application that runs 100% offline using a local database. Integrates cashier POS, device repair ticket tracking, parts inventory, and expenses in one view.',
     
     heroTitleSales: 'Manage Your Retail Sales & POS with Sanad System',
