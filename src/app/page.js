@@ -404,6 +404,8 @@ const t = {
 };
 
 export default function Home() {
+  const DOWNLOAD_URL_REPAIR = "https://drive.google.com/uc?export=download&id=YOUR_REPAIR_FILE_ID";
+  const DOWNLOAD_URL_SALES = "https://drive.google.com/uc?export=download&id=YOUR_SALES_FILE_ID";
   const [lang, setLang] = useState('ar');
   const [edition, setEdition] = useState('repair'); // 'repair' or 'sales'
   const [pricingEdition, setPricingEdition] = useState('repair'); // 'repair' or 'sales'
@@ -1171,7 +1173,51 @@ export default function Home() {
                 <div className="success-icon"><i className="fa-solid fa-circle-check"></i></div>
                 <h3>{t[lang].successTitle}</h3>
                 <p>{t[lang].successText}</p>
-                <button className="btn btn-primary" onClick={handleCloseSuccess}>
+                
+                {/* Download links container */}
+                <div className="success-downloads-container">
+                  <p style={{ fontWeight: 'bold', marginBottom: '5px', color: 'var(--text-main)' }}>
+                    {lang === 'ar' ? 'روابط التحميل المباشرة لنسختك التجريبية:' : 'Direct download links for your trial:'}
+                  </p>
+                  
+                  {/* Repair Edition Download Button */}
+                  <a 
+                    href={DOWNLOAD_URL_REPAIR} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className={`success-download-btn ${['pc-repair', 'mobile', 'electronics', ''].includes(formData.businessType) ? 'primary' : 'secondary'}`}
+                  >
+                    <i className="fa-solid fa-screwdriver-wrench"></i>
+                    <span>
+                      {lang === 'ar' ? 'تحميل إصدار صيانة الأجهزة والكمبيوتر' : 'Download PC & Repair Edition'}
+                    </span>
+                    {['pc-repair', 'mobile', 'electronics'].includes(formData.businessType) && (
+                      <span className="recommend-badge">
+                        {lang === 'ar' ? 'موصى به' : 'Recommended'}
+                      </span>
+                    )}
+                  </a>
+                  
+                  {/* Sales Edition Download Button */}
+                  <a 
+                    href={DOWNLOAD_URL_SALES} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className={`success-download-btn ${['supermarket', 'retail'].includes(formData.businessType) ? 'primary' : 'secondary'}`}
+                  >
+                    <i className="fa-solid fa-cash-register"></i>
+                    <span>
+                      {lang === 'ar' ? 'تحميل إصدار المبيعات والكاشير العامة' : 'Download General Retail & POS'}
+                    </span>
+                    {['supermarket', 'retail'].includes(formData.businessType) && (
+                      <span className="recommend-badge">
+                        {lang === 'ar' ? 'موصى به' : 'Recommended'}
+                      </span>
+                    )}
+                  </a>
+                </div>
+
+                <button className="btn btn-secondary" style={{ marginTop: '15px', width: '100%' }} onClick={handleCloseSuccess}>
                   {t[lang].successClose}
                 </button>
               </div>

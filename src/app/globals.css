@@ -1874,3 +1874,66 @@ body.lang-en .pricing-edition-tab i {
         font-size: 0.8rem !important;
     }
 }
+
+
+/* Form Success Direct Download Buttons Styles */
+.success-downloads-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+.success-download-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 12px 20px;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: all var(--transition-fast);
+    cursor: pointer;
+    width: 100%;
+    border: none;
+    font-family: inherit;
+}
+
+.success-download-btn.primary {
+    background-color: var(--color-primary);
+    color: var(--text-inverse);
+    box-shadow: 0 4px 12px var(--color-primary-glow);
+}
+
+.success-download-btn.primary:hover {
+    background-color: var(--color-primary-light);
+    transform: translateY(-2px);
+}
+
+.success-download-btn.secondary {
+    background-color: var(--bg-surface-alt);
+    border: 1px solid var(--border-color);
+    color: var(--text-main);
+}
+
+.success-download-btn.secondary:hover {
+    background-color: var(--border-color);
+    transform: translateY(-2px);
+}
+
+.success-download-btn .recommend-badge {
+    font-size: 0.72rem;
+    background-color: rgba(255, 255, 255, 0.25);
+    color: white;
+    padding: 2px 8px;
+    border-radius: 6px;
+}
+
+.success-download-btn.secondary .recommend-badge {
+    background-color: var(--color-primary);
+    color: white;
+}
