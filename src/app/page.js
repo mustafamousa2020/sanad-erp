@@ -404,8 +404,8 @@ const t = {
 };
 
 export default function Home() {
-  const DOWNLOAD_URL_REPAIR = "https://drive.google.com/uc?export=download&id=YOUR_REPAIR_FILE_ID";
-  const DOWNLOAD_URL_SALES = "https://drive.google.com/uc?export=download&id=YOUR_SALES_FILE_ID";
+  const DOWNLOAD_URL_REPAIR = "https://www.mediafire.com/file/13to4hxoo9a1vhe/%25D8%25B3%25D9%2586%25D8%25AF_%25D9%2584%25D8%25A5%25D8%25AF%25D8%25A7%25D8%25B1%25D8%25A9_%25D8%25A7%25D9%2584%25D9%2585%25D8%25A8%25D9%258A%25D8%25B9%25D8%25A7%25D8%25AA_%25D9%2588%25D8%25A7%25D9%2584%25D8%25B5%25D9%258A%25D8%25A7%25D9%2586%25D8%25A9_Setup_1.0.0.exe/file";
+  const DOWNLOAD_URL_SALES = "https://www.mediafire.com/file/hf6w75cgheq3nd7/%25D8%25B3%25D9%2586%25D8%25AF_%25D9%2584%25D9%2584%25D9%2585%25D8%25A8%25D9%258A%25D8%25B9%25D8%25A7%25D8%25AA_Setup_1.0.0.exe/file";
   const [lang, setLang] = useState('ar');
   const [edition, setEdition] = useState('repair'); // 'repair' or 'sales'
   const [pricingEdition, setPricingEdition] = useState('repair'); // 'repair' or 'sales'
