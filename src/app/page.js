@@ -423,6 +423,59 @@ export default function Home() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
+  const [openFaq, setOpenFaq] = useState(0);
+
+  const faqs = lang === 'ar' ? [
+    {
+      q: 'هل يعمل برنامج سند ERP بدون إنترنت نهائياً؟',
+      a: 'نعم، يعمل نظام سند ERP لسطح المكتب بنسبة 100% بدون إنترنت (Offline)، وتُحفظ جميع بياناتك محلياً بأمان تام على جهازك دون أي توقف في حركة البيع أو الصيانة.'
+    },
+    {
+      q: 'هل هناك اشتراكات شهرية أو رسوم تجديد سنوية إجبارية؟',
+      a: 'لا إطلاقاً! نظام سند يمنحك ترخيصاً مدى الحياة بدفعة واحدة فقط، وتمتلك النسخة بشكل كامل دون أي مصاريف شهرية أو سنوية مخفية.'
+    },
+    {
+      q: 'ما الفرق بين إصدار الصيانة وإصدار المبيعات العامة؟',
+      a: 'إصدار الصيانة مخصص لمحلات الكمبيوتر والموبايل والإلكترونيات ويضم قسم إدارة تذاكر الصيانة، استلام الأجهزة بالسيريال، طباعة إيصالات الاستلام، وخصم قطع الغيار تلقائياً بجانب الكاشير والمخازن. أما إصدار المبيعات العامة فهو مخصص للسوبرماركت والمحلات التجارية ويركز على سرعة الكاشير (POS) وجرد المخازن وحسابات الموردين والعملاء.'
+    },
+    {
+      q: 'هل يدعم البرنامج قارئ الباركود وطابعات الفواتير الحرارية؟',
+      a: 'نعم، يدعم النظام كافة أنواع قارئات الباركود (Barcode Scanners) وطابعات الفواتير الحرارية بمقاسات 80mm و 58mm، بالإضافة إلى طباعة إيصالات استلام وتسليم أجهزة الصيانة.'
+    },
+    {
+      q: 'كيف يتم حفظ البيانات وأخذ النسخ الاحتياطية (Backup)؟',
+      a: 'تُحفظ البيانات في قاعدة بيانات SQLite مشفرة وسريعة على جهازك، ويمكنك بضغطة زر واحدة من داخل الإعدادات أخذ نسخة احتياطية كاملة وحفظها على فلاشة خارجية أو استعادتها في أي وقت.'
+    },
+    {
+      q: 'كيف أحصل على النسخة التجريبية وكيف يتم التفعيل؟',
+      a: 'بمجرد ملء نموذج طلب النسخة التجريبية أسفل الصفحة والضغط على إرسال، يظهر لك فوراً رابط التحميل المباشر للنسختين لتثبيتهما وتجربتهما على جهازك، ونتواصل معك لتزويدك بمفتاح التفعيل.'
+    }
+  ] : [
+    {
+      q: 'Does Sanad ERP work completely offline without internet?',
+      a: 'Yes, Sanad ERP is a 100% offline-first desktop application. All your data is stored locally and securely on your PC so your sales and workshop operations never stop.'
+    },
+    {
+      q: 'Are there any mandatory monthly or annual subscription fees?',
+      a: 'No! Sanad ERP offers a one-time lifetime license with no hidden monthly or annual renewal fees.'
+    },
+    {
+      q: 'What is the difference between the Repair Edition and General Sales Edition?',
+      a: 'The PC & Repair Edition includes full repair ticket tracking, serial number logging, repair receipt printing, and automatic spare-parts deduction alongside POS and inventory. The General Sales Edition is tailored for supermarkets and retail stores, focusing on fast barcode POS, stock alerts, and supplier/customer ledgers.'
+    },
+    {
+      q: 'Does the software support barcode scanners and thermal receipt printers?',
+      a: 'Yes, it seamlessly supports all USB/wireless barcode scanners and 80mm / 58mm thermal receipt printers as well as standard A4 printers.'
+    },
+    {
+      q: 'How is my data stored and backed up?',
+      a: 'Your data is stored in a fast, encrypted local SQLite database. With a single click from Settings, you can export a full backup to an external drive or restore it anytime.'
+    },
+    {
+      q: 'How do I download the trial and activate my copy?',
+      a: 'Simply fill out the trial request form below and submit. Direct download buttons for both editions will appear immediately, and our team will provide your activation key.'
+    }
+  ];
 
   useEffect(() => {
     document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
@@ -1031,6 +1084,49 @@ export default function Home() {
         </div>
       </section>
 
+      {/* FAQ Section */}
+      <section className="faq-section" id="faq">
+        <div className="container">
+          <div className="section-header">
+            <span className="section-subtitle">
+              {lang === 'ar' ? 'الأسئلة الشائعة' : 'FAQ'}
+            </span>
+            <h2 className="section-title">
+              {lang === 'ar' ? 'إجابات وافية لكل استفساراتك حول نظام سند' : 'Frequently Asked Questions About Sanad ERP'}
+            </h2>
+            <p className="section-desc">
+              {lang === 'ar' ? 'كل ما تحتاج معرفته قبل تحميل نسختك التجريبية والبدء في تنظيم عملك.' : 'Everything you need to know before downloading your free trial.'}
+            </p>
+          </div>
+
+          <div className="faq-list">
+            {faqs.map((item, idx) => {
+              const isOpen = openFaq === idx;
+              return (
+                <div key={idx} className={`faq-item ${isOpen ? 'open' : ''}`}>
+                  <button
+                    type="button"
+                    className="faq-question"
+                    onClick={() => setOpenFaq(isOpen ? -1 : idx)}
+                    aria-expanded={isOpen}
+                  >
+                    <span>{item.q}</span>
+                    <span className="faq-icon">
+                      <i className="fa-solid fa-chevron-down"></i>
+                    </span>
+                  </button>
+                  {isOpen && (
+                    <div className="faq-answer">
+                      <p>{item.a}</p>
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
       {/* Booking / Contact Form Section */}
       <section className="contact-section" id="contact">
         <div className="container contact-container">
@@ -1281,7 +1377,7 @@ export default function Home() {
               <li><a href="#">{t[lang].footerSupport1}</a></li>
               <li><a href="#">{t[lang].footerSupport2}</a></li>
               <li><a href="#">{t[lang].footerSupport3}</a></li>
-              <li><a href="#">{t[lang].footerSupport4}</a></li>
+              <li><a href="#faq">{t[lang].footerSupport4}</a></li>
               <li><a href="#contact">{t[lang].footerSupport5}</a></li>
             </ul>
           </div>
@@ -1292,6 +1388,18 @@ export default function Home() {
           <p className="crafted-by">{t[lang].craftedBy}</p>
         </div>
       </footer>
+
+      {/* Floating WhatsApp Direct Chat Button */}
+      <a
+        href="https://wa.me/201002403727?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D9%86%D8%B8%D8%A7%D9%85%20%D8%B3%D9%86%D8%AF%20ERP"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="whatsapp-float"
+        aria-label={lang === 'ar' ? 'تواصل معنا عبر واتساب' : 'Chat on WhatsApp'}
+      >
+        <i className="fa-brands fa-whatsapp"></i>
+        <span>{lang === 'ar' ? 'تواصل واتساب' : 'WhatsApp Us'}</span>
+      </a>
     </>
   );
 }
