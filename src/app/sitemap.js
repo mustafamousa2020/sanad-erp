@@ -1,5 +1,5 @@
 export default function sitemap() {
-  const baseUrl = 'https://sanad-erp-two.vercel.app';
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://sanad-erp-two.vercel.app';
 
   return [
     {
@@ -8,12 +8,13 @@ export default function sitemap() {
       changeFrequency: 'weekly',
       priority: 1.0,
       images: [
-        `${baseUrl}/dashboard_mockup.jpg`,
         `${baseUrl}/logo.jpg`,
-        `${baseUrl}/tabs/tab_0_dashboard.jpg`,
-        `${baseUrl}/tabs/tab_1_pos.jpg`,
-        `${baseUrl}/tabs/tab_2_repairs.jpg`,
-        `${baseUrl}/tabs/tab_3_inventory.jpg`,
+        `${baseUrl}/screenshots/dashboard.jpg`,
+        `${baseUrl}/screenshots/pos.jpg`,
+        `${baseUrl}/screenshots/inventory.jpg`,
+        `${baseUrl}/screenshots/repairs.jpg`,
+        `${baseUrl}/screenshots/customers.jpg`,
+        `${baseUrl}/screenshots/reports.jpg`,
       ],
     },
   ];
